@@ -57,7 +57,7 @@ public class DataCollector {
 
         Metric normalizedMetric = null;
 
-        if (response.getMediaType() == MediaType.APPLICATION_JSON_TYPE) {
+        if (MediaType.APPLICATION_JSON_TYPE.equals(response.getMediaType())) {
             JsonObject metric = response.readEntity(JsonObject.class);
             normalizedMetric = optionalExtractor.
                     map(f -> new Metric(configuration, f.apply(this.toString(metric)))).
